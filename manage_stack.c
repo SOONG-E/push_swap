@@ -6,33 +6,23 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:26:49 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 18:57:20 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 19:38:34 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-static void	init_node(t_nd **head, t_nd	**tail)
-{
-	(*head)->pre = NULL;
-	(*head)->n = 0;
-	(*head)->next = *(tail);
-	(*tail)->pre = *(head);
-	(*tail)->n = 0;
-	(*tail)->next = NULL;
-}
-
 t_stack	*init_stack()
 {
-	t_stack	*stk;
-	stk = (t_stack *)malloc(sizeof(t_stack));
-	if (!stk)
+	t_stack	*new;
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
 		exit(1);
-	stk->head = NULL;
-	stk->tail = NULL;
-	stk->size = 0;
-	return (stk);
+	new->head = NULL;
+	new->tail = NULL;
+	new->size = 0;
+	return (new);
 }
 
 void	free_stack(t_stack **a)
@@ -55,13 +45,14 @@ void	insert_stack_back(t_stack *a, int n)
 	temp = (t_nd *)malloc(sizeof(t_nd));
 	if (!temp)
 		error();
-	temp->pre = a->tail; //
-	temp->next = NULL;
+	temp->pre = a->tail;
+	temp->next = a->head;
 	if (a->tail)
 		a->tail->next = temp;
 	a->tail = temp;
 	temp->n = n;
 	if (a->size == 0)
 		a->head = temp;
+	a->head->pre = temp;
 	++(a->size);
 }

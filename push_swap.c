@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:30:00 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 19:18:57 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 20:21:43 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ void pprint(t_stack *a)
 {
 	t_nd	*tmp;
 	tmp = a->head;
-	while (tmp)
+	int i;
+	
+	i = 0;
+	while (tmp && i < a->size)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
+		++i;
 	}
 }
 
@@ -46,9 +50,9 @@ int	main()
 	
 	pprint(a);
 	p(b, a, 'b');
-	printf("after p \na : \n");
+	printf("\nafter p \n\na : \n\n");
 	pprint(a);
-	printf("b : \n");
+	printf("\nb : \n");
 	pprint(b);
 }
 

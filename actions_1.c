@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 17:31:01 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 19:19:37 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 20:12:54 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	double_time(t_stack *a, t_stack *b, char *c, \
 
 void	p(t_stack *a, t_stack *b, char c)
 {
-	if (b->size > 0)
+	if ((b)->size > 0)
 	{
 		insert_stack_front(a, steal_node(b));
-		++(a->size);
-		--(b->size);
+		++((a)->size);
+		--((b)->size);
 	}	
 }
 
