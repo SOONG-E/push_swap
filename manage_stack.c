@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:26:49 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 17:13:09 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 18:57:20 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_stack(t_stack **a)
 	}*/
 }
 
-void	insert_stack(t_stack *a, int n)
+void	insert_stack_back(t_stack *a, int n)
 {
 	t_nd	*temp;
 

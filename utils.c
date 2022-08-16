@@ -6,12 +6,22 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 17:23:33 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 18:47:34 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		++i;
+	return (i);
+}
 
 static int	ft_atoi(char c)
 {
@@ -34,7 +44,7 @@ static void	split_arg(char *arg, t_stack *a)
 		else if (arg[idx] == ' ')
 		{
 			if (temp)
-				insert_stack(a, temp);
+				insert_stack_back(a, temp);
 			temp = 0;
 		}
 		else
@@ -42,7 +52,7 @@ static void	split_arg(char *arg, t_stack *a)
 		++idx;
 	}
 	if (temp)
-		insert_stack(a, temp);
+		insert_stack_back(a, temp);
 }
 
 void	process_args(int ac, char **av, t_stack *a)
