@@ -6,12 +6,13 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 18:47:34 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 20:37:07 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 int	ft_strlen(char *str)
 {
@@ -65,4 +66,11 @@ void	process_args(int ac, char **av, t_stack *a)
 		split_arg(av[i], a);
 		++i;
 	}
+}
+
+void	write_action(char *act, char c)
+{
+	write(1, act, ft_strlen(act));
+	write(1, &c, 1);
+	write(1, "\n", 1);
 }

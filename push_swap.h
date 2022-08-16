@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:29:57 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/16 20:16:20 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/16 20:36:52 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_nd		*steal_node(t_stack *a);
 
 int			ft_strlen(char *str);
 void		process_args(int ac, char **av, t_stack *a);
+void		write_action(char *act, char c);
 
 void		s(t_stack *a, char c);
 void		p(t_stack *a, t_stack *b, char c);
