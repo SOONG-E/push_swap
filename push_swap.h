@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:29:57 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/17 16:23:08 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/17 19:57:28 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void		write_action(char *act, char c);
 void		indexing_node(t_stack *a);
 
 void		classify_stack(t_stack *a, t_stack *b);
+
+void		moving_to_b(t_stack *a, t_stack *b);
 
 void		s(t_stack *a, char c);
 void		p(t_stack *a, t_stack *b, char c);

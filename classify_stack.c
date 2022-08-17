@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:06:42 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/17 16:27:32 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/17 18:39:52 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void	classify_stack(t_stack *a, t_stack *b)
 		return ;
 	else if (a->size == 2)
 		stack_size_2(a);
-	else if (a->size == 3)
-		stack_size_3(a, b);
 	else
 	{
 		indexing_node(a);
-		if (a->size == 4)
+		if (a->size == 3)
+			stack_size_3(a, b);
+		else if (a->size == 4)
 			stack_size_4(a, b);
 		else
 			stack_size_5(a, b);

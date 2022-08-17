@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:30:00 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/17 16:26:33 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/17 20:06:03 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ void pprint(t_stack *a)
 	i = 0;
 	while (tmp && i < a->size)
 	{
-		printf("%d\n", tmp->n);
+		printf("%d, ", tmp->n);
 		tmp = tmp->next;
 		++i;
 	}
+	printf("\b\b\n");
 } //안지우면 죽음뿐.....유 다이;...
 
 
@@ -38,6 +39,7 @@ void	push_swap(t_stack *a, t_stack *b)
 	else
 	{
 		indexing_node(a);
+		moving_to_b(a, b);
 	}
 }
 
@@ -52,5 +54,8 @@ int	main(int ac, char **av)
 	b = init_stack();
 	process_args(ac, av, a);
 	push_swap(a, b);
+	printf("a :");
 	pprint(a);
+	printf("b :");
+	pprint(b);
 }
