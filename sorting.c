@@ -6,40 +6,12 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:53:06 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 17:31:13 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 19:11:07 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
-#include <stdio.h> //제발 지워 제발 지워 제발 지워 제발 지워
-
-static int	finding_loc(t_stack *a, int n)
-{
-	t_nd	*temp;
-	int		ret;
-
-	temp = a->head;
-	ret = 0;
-	while (ret < a->size)
-	{
-		if (temp->pre->n < temp->n)
-		{
-			if (temp->pre->n < n && n < temp->n)
-				break;
-		}
-		else
-		{
-			if (n < temp->n || temp->pre->n < n)
-				break;
-		}
-		temp = temp->next;
-		++ret;
-	}
-	if (ret > a->size / 2)
-		ret = a->size - ret;
-	return (ret);
-}
 
 static int	calculator(t_stack *a, t_stack *b)
 {
@@ -48,11 +20,11 @@ static int	calculator(t_stack *a, t_stack *b)
 	int		loc;
 	t_nd	*temp;
 
-	idx = 0;
+	idx = -1;
 	temp = b->head;
 	min[0] = temp->n;
 	min[1] = INT_MAX;
-	while (idx < b->size)
+	while (++idx < b->size)
 	{
 		if (idx < b->size / 2)
 			loc = idx + finding_loc(a, temp->n);
@@ -64,12 +36,11 @@ static int	calculator(t_stack *a, t_stack *b)
 			min[1] = loc;
 		}
 		temp = temp->next;
-		++idx;
 	}
 	return (min[0]);
 }
 
-static void	shift_a(t_stack *a, int n)
+static void	shift_a(t_stack *a, int n, char c)
 {
 	void	(*f)(t_stack *a, char c);
 	
@@ -78,7 +49,7 @@ static void	shift_a(t_stack *a, int n)
 	else
 		f = r;
 	while (finding_loc(a, n))
-		f(a, n);
+		f(a, c);
 }
 
 static void	moving_to_a(t_stack *a, t_stack *b, int n)
@@ -86,15 +57,41 @@ static void	moving_to_a(t_stack *a, t_stack *b, int n)
 	t_nd	*temp;
 
 	temp = b->head;
-	shift_a(a, n);
-	
-	
+	shift_a(a, n, 'a');
+	shift_a(b, n, 'b');
+	if (b->tail->n == n)
+		rr(b, 'b');
+	p(a, b, 'a');
+}
+
+void	smallest_head(t_stack *a)
+{
+	int		min;
+	int		idx;
+	t_nd	*temp;
+
+	temp = a->head;
+	min = temp->n;
+	idx = -1;
+	while (++idx < a->size)
+	{
+		if (temp->n < min)
+			min = temp->n;
+		temp = temp->next;
+	}
+	shift_a(a, min, 'a');
+	if (a->tail->n == min)
+		rr(a, 'a');
 }
 
 void	sorting(t_stack *a, t_stack *b)
 {
-	int	idx;
+	int	min;
 
-	idx = calculator(a, b);
-	moving_to_a(a, b, idx);
+	while (b->size)
+	{
+		min = calculator(a, b);
+		moving_to_a(a, b, min);
+	}
+	smallest_head(a);
 }

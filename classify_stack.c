@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:06:42 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 15:46:34 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 18:39:05 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ void	stack_size_2(t_stack *a)
 
 void	stack_size_3(t_stack *a, t_stack *b)
 {
-	while (!(a->head->n < a->head->next->n && a->head->n < a->tail->n))
-		r(a, 'a');
+	if (a->tail->n < a->head->n && a->tail->n < a->head->next->n)
+		rr(a, 'a');
+	else
+	{	
+		while (!(a->head->n < a->head->next->n && a->head->n < a->tail->n))
+			r(a, 'a');
+	}
 	p(b, a, 'b');
 	stack_size_2(a);
 	p(a, b, 'a');
