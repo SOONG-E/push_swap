@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 18:41:39 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 17:00:52 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 21:21:44 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	moving_rest(t_stack *a, t_stack *b)
 	while (a->size > 3)
 		p(b, a, 'b');
 	if (a->size == 3)
-		stack_size_3(a, b);
+		stack_size_3(a);
 	else if (a->size == 2)
 		stack_size_2(a);
 }
