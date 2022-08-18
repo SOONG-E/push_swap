@@ -6,13 +6,11 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 18:41:39 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 15:38:48 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 17:00:52 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> //지우기 제발 지우기 제발 지우기 제발 지우기
-
 
 static void	moving_rest(t_stack *a, t_stack *b)
 {
@@ -26,7 +24,7 @@ static void	moving_rest(t_stack *a, t_stack *b)
 
 void	moving_to_b(t_stack *a, t_stack *b)
 {
-	int 	idx;
+	int		idx;
 	int		pv[2];
 	int		len;
 
@@ -34,7 +32,6 @@ void	moving_to_b(t_stack *a, t_stack *b)
 	pv[0] = a->size / 3;
 	pv[1] = pv[0] * 2;
 	len = a->size;
-	printf("%d %d %d", len ,pv[0], pv[1]);
 	while (idx < len)
 	{
 		if (a->head->n >= pv[1])
