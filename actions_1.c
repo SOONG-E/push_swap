@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 17:31:01 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/17 20:09:57 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 15:44:52 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	s(t_stack *a, char c)
 {
 	int	temp;
 
-	if (a->size <= 2)
+	if (a->size <= 1)
 		return ;
 	temp = a->head->n;
 	a->head->n = a->head->next->n;
@@ -27,7 +27,7 @@ void	s(t_stack *a, char c)
 
 void	p(t_stack *a, t_stack *b, char c)
 {
-	if (b->size <= 1)
+	if (b->size < 1)
 		return ;
 	insert_stack_front(a, steal_node(b));
 	write_action("p", c);

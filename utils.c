@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/17 12:30:22 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 15:18:42 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	split_arg(char *arg, t_stack *a)
 	temp = 0;
 	while (arg[idx])
 	{
-		if (ft_atoi(arg[idx]) > 0)
+		if (ft_atoi(arg[idx]) >= 0)
 			temp = temp * 10 + ft_atoi(arg[idx]);
 		else if (arg[idx] == ' ')
 		{

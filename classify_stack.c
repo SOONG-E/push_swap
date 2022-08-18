@@ -6,19 +6,19 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:06:42 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/17 18:39:52 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/18 15:46:34 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	stack_size_2(t_stack *a)
+void	stack_size_2(t_stack *a)
 {
 	if (a->head->n > a->tail->n)
 		s(a, 'a');
 }
 
-static void	stack_size_3(t_stack *a, t_stack *b)
+void	stack_size_3(t_stack *a, t_stack *b)
 {
 	while (!(a->head->n < a->head->next->n && a->head->n < a->tail->n))
 		r(a, 'a');
