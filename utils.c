@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 18:04:32 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/19 20:20:41 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	split_arg(char *arg, t_stack *a)
 			temp = temp * 10 + ft_atoi(arg[idx]);
 		else if (arg[idx] == ' ')
 		{
-			if (temp || (!temp && arg[idx] == '0'))
+			if (temp || (arg[idx - 1] && !temp && arg[idx - 1] == '0'))
 				insert_stack_back(a, sign * temp);
 			temp = 0;
 			sign = 1;
