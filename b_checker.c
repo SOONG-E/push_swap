@@ -6,17 +6,15 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 15:18:19 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 19:32:29 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/19 19:51:04 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h> //checker.c
-#include <fcntl.h>
 
-void	classify_action(t_stack *a, t_stack *b, char *act)
+static void	classify_action(t_stack *a, t_stack *b, char *act)
 {
 	if (!ft_strcmp(act, "sa"))
 		s(a, 'x');
@@ -44,25 +42,7 @@ void	classify_action(t_stack *a, t_stack *b, char *act)
 		error();
 }
 
-int	validation(t_stack *a, t_stack *b)
-{
-	t_nd	*temp;
-	int		idx;
-
-	temp = a->head;
-	if (b->size > 0)
-		return (-1);
-	idx = -1;
-	while (++idx < (a->size - 1))
-	{
-		if (temp->n > temp->next->n)
-			return (-1);
-		temp = temp->next;
-	}
-	return (1);
-}
-
-char	*read_action()
+static char	*read_action(void)
 {
 	char	buff[100];
 	char	*temp;
@@ -79,7 +59,7 @@ char	*read_action()
 	return (temp);
 }
 
-void	parsing_action(t_stack *a, t_stack *b, char *acts)
+static void	parsing_action(t_stack *a, t_stack *b, char *acts)
 {
 	char	act[4];
 	int		idx;
@@ -92,16 +72,16 @@ void	parsing_action(t_stack *a, t_stack *b, char *acts)
 	{
 		idx2 = -1;
 		while (acts[idx] && acts[idx] != '\n')
-			act[++idx2]	= acts[idx++];
+			act[++idx2] = acts[idx++];
 		act[++idx2] = 0;
 		classify_action(a, b, act);
 	}
 }
 
-void	checker(t_stack *a, t_stack *b)
+static void	checker(t_stack *a, t_stack *b)
 {
-	char *temp;
-	
+	char	*temp;
+
 	temp = read_action();
 	parsing_action(a, b, temp);
 	free(temp);

@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 15:35:02 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 18:18:40 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/19 19:46:38 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,22 @@ char	*ft_strjoin(char *str1, char *str2)
 		ret[retidx++] = str2[stridx++];
 	ret[retidx] = 0;
 	return (ret);
+}
+
+int	validation(t_stack *a, t_stack *b)
+{
+	t_nd	*temp;
+	int		idx;
+
+	temp = a->head;
+	if (b->size > 0)
+		return (-1);
+	idx = -1;
+	while (++idx < (a->size - 1))
+	{
+		if (temp->n > temp->next->n)
+			return (-1);
+		temp = temp->next;
+	}
+	return (1);
 }
