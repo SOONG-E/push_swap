@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:06:42 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 21:21:25 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/19 14:48:39 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	stack_size_3(t_stack *a)
 		s(a, 'a');
 		return ;
 	}
-	if (!(a->tail->n < a->head->n && a->head->n < a->tail->pre->n) &&
-		(!(a->tail->pre->n < a->tail->n && a->tail->n < a->head->n)))
+	if (!(a->tail->n < a->head->n && a->head->n < a->tail->pre->n)
+		&& (!(a->tail->pre->n < a->tail->n && a->tail->n < a->head->n)))
 		s(a, 'a');
 	if (a->tail->pre->n < a->tail->n)
 		r(a, 'a');

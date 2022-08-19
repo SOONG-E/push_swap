@@ -6,14 +6,14 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:53:06 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 19:11:07 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/19 14:38:43 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-static int	calculator(t_stack *a, t_stack *b)
+int	calculator(t_stack *a, t_stack *b)
 {
 	int		min[2];
 	int		idx;
@@ -27,9 +27,9 @@ static int	calculator(t_stack *a, t_stack *b)
 	while (++idx < b->size)
 	{
 		if (idx < b->size / 2)
-			loc = idx + finding_loc(a, temp->n);
+			loc = idx + finding_shortest_loc(a, temp->n);
 		else
-			loc = b->size - idx + finding_loc(a, temp->n);
+			loc = b->size - idx + finding_shortest_loc(a, temp->n);
 		if (loc < min[1])
 		{
 			min[0] = temp->n;
@@ -43,12 +43,16 @@ static int	calculator(t_stack *a, t_stack *b)
 static void	shift_a(t_stack *a, int n, char c)
 {
 	void	(*f)(t_stack *a, char c);
-	
-	if (finding_loc(a, n) > (a->size / 2))
+
+	if (c == 'a' && finding_loc(a, n) >= (a->size / 2))
+		f = rr;
+	else if (c == 'b' && finding_exact_loc(a, n) >= (a->size / 2))
 		f = rr;
 	else
 		f = r;
-	while (finding_loc(a, n))
+	while (c == 'a' && finding_loc(a, n))
+		f(a, c);
+	while (c == 'b' && a->head->n != n)
 		f(a, c);
 }
 

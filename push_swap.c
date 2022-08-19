@@ -6,31 +6,12 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:30:00 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/18 21:48:29 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/19 14:49:01 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
-#include <stdio.h> //지우기 제발 지우기 제발 지우기 제발 지우기
-
-//안지우면 죽음뿐.....유 다이;...
-void pprint(t_stack *a)
-{
-	t_nd	*tmp;
-	tmp = a->head;
-	int i;
-	
-	i = 0;
-	while (tmp && i < a->size)
-	{
-		printf("%d, ", tmp->n);
-		tmp = tmp->next;
-		++i;
-	}
-	printf("\b\b\n");
-} //안지우면 죽음뿐.....유 다이;...
-
 
 void	push_swap(t_stack *a, t_stack *b)
 {
@@ -57,5 +38,4 @@ int	main(int ac, char **av)
 	push_swap(a, b);
 	free_stack(&a);
 	free_stack(&b);
-
 }
