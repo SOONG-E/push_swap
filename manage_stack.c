@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:26:49 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/20 13:57:15 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/20 18:07:39 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*init_stack(void)
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
-		exit(1);
+		error();
 	new->head = NULL;
 	new->tail = NULL;
 	new->size = 0;
