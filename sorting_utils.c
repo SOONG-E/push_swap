@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:44:22 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 14:49:31 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/20 14:05:51 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,22 @@ int	finding_exact_loc(t_stack *a, int n)
 		temp = temp->next;
 	}
 	return (ret);
+}
+
+int	validation(t_stack *a, t_stack *b)
+{
+	t_nd	*temp;
+	int		idx;
+
+	temp = a->head;
+	if (b->size > 0)
+		return (-1);
+	idx = -1;
+	while (++idx < (a->size - 1))
+	{
+		if (temp->n > temp->next->n)
+			return (-1);
+		temp = temp->next;
+	}
+	return (1);
 }

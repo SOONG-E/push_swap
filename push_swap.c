@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:30:00 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 20:21:48 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/20 14:05:26 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	push_swap(t_stack *a, t_stack *b)
 {
+	if (validation(a, b) > 0)
+		return ;
 	if (a->size <= 5)
 		classify_stack(a, b);
 	else

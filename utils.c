@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 20:20:41 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/20 14:06:12 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-static int	ft_atoi(char c)
+static int	ft_atoi(char c, int n, int sign)
 {
 	if ('0' <= c && c <= '9')
+	{
+		if (n >= 214748364 && ((sign > 0 && (c - '0') > 7)
+				|| (sign < 0 && (c - '0') > 8)))
+			error();
 		return (c - '0');
+	}
 	return (-1);
 }
 
@@ -46,8 +51,8 @@ static void	split_arg(char *arg, t_stack *a)
 	{
 		if (arg[idx] == '-' && !temp)
 			sign = -1;
-		else if (ft_atoi(arg[idx]) >= 0)
-			temp = temp * 10 + ft_atoi(arg[idx]);
+		else if (ft_atoi(arg[idx], temp, sign) >= 0)
+			temp = temp * 10 + ft_atoi(arg[idx], temp, sign);
 		else if (arg[idx] == ' ')
 		{
 			if (temp || (arg[idx - 1] && !temp && arg[idx - 1] == '0'))
