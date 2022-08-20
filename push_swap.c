@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 18:30:00 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/20 14:05:26 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/20 17:56:27 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ int	main(int ac, char **av)
 	t_stack	*b;
 
 	if (ac < 2)
-		error();
+		return (-1);
 	a = init_stack();
 	b = init_stack();
 	process_args(ac, av, a);
 	push_swap(a, b);
 	free_stack(&a);
 	free_stack(&b);
+	return (0);
 }
