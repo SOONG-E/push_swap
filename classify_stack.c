@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:06:42 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/19 14:48:39 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/22 17:40:36 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ static void	stack_size_4(t_stack *a, t_stack *b)
 {
 	while (a->head->n)
 		r(a, 'a');
-	p(b, a, 'b');
-	stack_size_3(a);
-	p(a, b, 'a');
+	if (validation(a, b) < 0)
+	{
+		p(b, a, 'b');
+		stack_size_3(a);
+		p(a, b, 'a');
+	}
 }
 
 static void	stack_size_5(t_stack *a, t_stack *b)

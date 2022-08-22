@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/22 13:28:16 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/22 17:37:08 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,26 @@ static void	split_arg(char *arg, t_stack *a)
 	int			sign;
 
 	idx = -1;
-	temp = 0;
-	sign = 1;
-	while (arg[++idx])
+	while (idx == -1 || arg[idx])
 	{
-		if (arg[idx] == '-' && !temp)
-			sign = -1;
-		else if (ft_atoi(arg[idx], temp, sign) >= 0)
-			temp = temp * 10 + ft_atoi(arg[idx], temp, sign);
-		else if (arg[idx] == ' ')
+		temp = 0;
+		sign = 1;
+		++idx;
+		while (arg[idx] && arg[idx] == ' ')
+			++idx;
+		if (arg[idx] && (arg[idx] == '-' || arg[idx] == '+'))
 		{
-			if (temp || (arg[idx - 1] && !temp && arg[idx - 1] == '0'))
-				insert_stack_back(a, sign * temp);
-			temp = 0;
-			sign = 1;
+			if (arg[idx] == '-')
+				sign = -1;
+			++idx;
 		}
-		else
+		while (arg[idx] && ft_atoi(arg[idx], temp, sign) >= 0)
+			temp = temp * 10 + ft_atoi(arg[idx++], temp, sign);
+		if (arg[idx - 1] && ft_atoi(arg[idx - 1], 0, sign) == -1)
 			error();
+		if (temp || (!temp && arg[idx - 1] && arg[idx - 1] == '0'))
+			insert_stack_back(a, sign * temp);
 	}
-	if (temp || (!temp && arg[idx - 1] == '0'))
-		insert_stack_back(a, sign * temp);
 }
 
 void	process_args(int ac, char **av, t_stack *a)
