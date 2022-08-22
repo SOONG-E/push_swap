@@ -6,7 +6,7 @@
 /*   By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:34:47 by yujelee           #+#    #+#             */
-/*   Updated: 2022/08/20 18:03:18 by yujelee          ###   ########seoul.kr  */
+/*   Updated: 2022/08/22 13:28:16 by yujelee          ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_atoi(char c, int n, int sign)
 		if (n >= 214748364 && ((sign > 0 && (c - '0') > 7)
 				|| (sign < 0 && (c - '0') > 8)))
 			error();
-		if (n > 214748364)
+		if (n > 214748364 && c != ' ')
 			error();
 		return (c - '0');
 	}
