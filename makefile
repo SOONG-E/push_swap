@@ -26,7 +26,7 @@ SRCS = push_swap.c			\
 	   sorting_utils.c		\
 	   action_in_stack.c
 
-BONUS_SRC = b_checker.c			\
+BONUS_SRC = push_swap_bonus.c	\
 			b_checker_utils.c	\
 			utils.c				\
 			manage_stack.c		\
