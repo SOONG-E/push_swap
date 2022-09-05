@@ -6,7 +6,7 @@
 #    By: yujelee <yujelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/19 19:45:16 by yujelee           #+#    #+#              #
-#    Updated: 2022/08/19 19:45:18 by yujelee          ###   ########seoul.kr   #
+#    Updated: 2022/09/04 15:53:11 by yujelee          ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = push_swap.c			\
 	   sorting_utils.c		\
 	   action_in_stack.c
 
-BONUS_SRC = b_checker.c			\
+BONUS_SRC = push_swap_bonus.c	\
 			b_checker_utils.c	\
 			utils.c				\
 			manage_stack.c		\
@@ -36,7 +36,6 @@ BONUS_SRC = b_checker.c			\
 			indexing_node.c		\
 			classify_stack.c	\
 			moving.c			\
-			sorting.c			\
 			sorting_utils.c		\
 			action_in_stack.c
 
